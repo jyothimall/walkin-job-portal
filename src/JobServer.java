@@ -26,6 +26,10 @@ public class JobServer {
                 "/jobs",
                 JobServer::handleJobs
         );
+        server.createContext(
+        "/",
+        JobServer::handleHome
+        );
 
         server.createContext(
                 "/apply",
@@ -1144,4 +1148,35 @@ public class JobServer {
             os.write(data);
         }
     }
+    private static void handleHome(
+        HttpExchange exchange)
+        throws IOException {
+
+    File file = new File("index.html");
+
+    if (!file.exists()) {
+        exchange.sendResponseHeaders(404, -1);
+        return;
+    }
+
+    byte[] data = java.nio.file.Files.readAllBytes(
+            file.toPath()
+    );
+
+    exchange.getResponseHeaders().set(
+            "Content-Type",
+            "text/html"
+    );
+
+    exchange.sendResponseHeaders(
+            200,
+            data.length
+    );
+
+    try (
+        OutputStream os = exchange.getResponseBody()
+    ) {
+        os.write(data);
+    }
+}
 }
