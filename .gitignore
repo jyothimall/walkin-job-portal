@@ -9,4 +9,3 @@ out/
 resumes/
 
 # MySQL password file
-src/DBConnection.java
