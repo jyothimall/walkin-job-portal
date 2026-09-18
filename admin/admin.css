@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+
+
+/* Header */
+
+.admin-header {
+    background: #1f2937;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.admin-header h1 {
+    margin: 0;
+}
+
+.admin-header p {
+    margin: 8px 0 0;
+}
+
+
+/* Main container */
+
+.admin-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+/* Welcome */
+
+.welcome-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.welcome-section h2 {
+    margin-top: 0;
+}
+
+
+/* Dashboard cards */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.dashboard-card h3 {
+    margin-top: 0;
+}
+
+
+.dashboard-card p {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+
+.dashboard-card button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+.dashboard-card button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Content section */
+
+.content-section {
+    margin-top: 30px;
+}
+
+
+.content-section h2 {
+    margin-bottom: 15px;
+}
+
+
+.job-item,
+.application-item {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+.job-item h3,
+.application-item h3 {
+    margin-top: 0;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-container {
+        width: 94%;
+    }
+
+    .admin-header {
+        padding: 20px;
+    }
+
+}

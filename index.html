@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>WalkIn Jobs - Find Walk-in Interviews</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <h1>WalkIn Jobs</h1>
+
+            <p>
+                Find the latest walk-in interviews across India
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- ================= SEARCH SECTION ================= -->
+
+        <section class="search-section">
+
+            <h2>Find Walk-in Interviews</h2>
+
+            <p class="section-description">
+                Select your state and city to find available
+                walk-in interviews.
+            </p>
+
+
+            <div class="filter-container">
+
+
+                <!-- STATE -->
+
+                <div class="filter-group">
+
+                    <label for="state">
+                        Select State
+                    </label>
+
+                    <select id="state">
+
+                        <option value="">
+                            Select State
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CITY -->
+
+                <div class="filter-group">
+
+                    <label for="city">
+                        Select City
+                    </label>
+
+                    <select id="city" disabled>
+
+                        <option value="">
+                            Select City
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= WALK-IN SECTION ================= -->
+
+        <section class="jobs-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Available Walk-ins
+                    </h2>
+
+                    <p id="result-text">
+                        Select a state and city to see
+                        available walk-ins.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB CARDS WILL APPEAR HERE -->
+
+            <div id="jobs" class="jobs-container">
+
+                <div class="initial-message">
+
+                    <div class="message-icon">
+                        🔍
+                    </div>
+
+                    <h3>
+                        Find Your Next Opportunity
+                    </h3>
+
+                    <p>
+                        Select a state and city above to
+                        see available walk-in interviews.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 WalkIn Jobs. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+   
+    <!-- ================= JOB DETAILS MODAL ================= -->
+
+<div id="jobModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal()">
+            ×
+        </button>
+
+        <h2 id="modalRole">
+            Job Role
+        </h2>
+
+        <p class="modal-company" id="modalCompany">
+            Company Name
+        </p>
+
+        <div class="modal-details">
+
+            <p>
+                📍 <strong>Location:</strong>
+                <span id="modalLocation"></span>
+            </p>
+
+            <p>
+                📅 <strong>Date:</strong>
+                <span id="modalDate"></span>
+            </p>
+
+            <p>
+                ⏰ <strong>Time:</strong>
+                <span id="modalTime"></span>
+            </p>
+
+            <p>
+                🎓 <strong>Qualification:</strong>
+                <span id="modalQualification"></span>
+            </p>
+
+            <p>
+                💼 <strong>Experience:</strong>
+                <span id="modalExperience"></span>
+            </p>
+
+            <p>
+                💰 <strong>Salary:</strong>
+                <span id="modalSalary"></span>
+            </p>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>Skills Required</h3>
+
+            <p id="modalSkills"></p>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>Interview Address</h3>
+
+            <p id="modalAddress"></p>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>Contact Information</h3>
+
+            <p>
+                📧 <strong>Email:</strong>
+                <span id="modalEmail"></span>
+            </p>
+
+            <p>
+                📞 <strong>Phone:</strong>
+                <span id="modalPhone"></span>
+            </p>
+
+        </div>
+
+        
+    </div>
+
+</div>
+
+<!-- ================= APPLICATION MODAL ================= -->
+
+<div id="applicationModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeApplication()">
+            ×
+        </button>
+
+        <h2>Apply for Job</h2>
+
+        <p class="modal-company" id="applicationJob">
+            Job Role - Company
+        </p>
+
+        <form id="applicationForm">
+
+            <div class="form-group">
+
+                <label for="applicantName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="applicantName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicantEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="applicantEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicantPhone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="applicantPhone"
+                    placeholder="Enter your phone number"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicantQualification">
+                    Qualification
+                </label>
+
+                <select id="applicantQualification" required>
+
+                    <option value="">
+                        Select Qualification
+                    </option>
+
+                    <option value="B.E / B.Tech">
+                        B.E / B.Tech
+                    </option>
+
+                    <option value="BCA">
+                        BCA
+                    </option>
+
+                    <option value="MCA">
+                        MCA
+                    </option>
+
+                    <option value="M.E / M.Tech">
+                        M.E / M.Tech
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicantExperience">
+                    Experience
+                </label>
+
+                <select id="applicantExperience" required>
+
+                    <option value="">
+                        Select Experience
+                    </option>
+
+                    <option value="Fresher">
+                        Fresher
+                    </option>
+
+                    <option value="0-1 Years">
+                        0-1 Years
+                    </option>
+
+                    <option value="1-2 Years">
+                        1-2 Years
+                    </option>
+
+                    <option value="2-5 Years">
+                        2-5 Years
+                    </option>
+
+                    <option value="5+ Years">
+                        5+ Years
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="resume">
+                    Resume
+                </label>
+
+                <input
+                    type="file"
+                    id="resume"
+                    accept=".pdf,.doc,.docx"
+                    required
+                >
+
+                <small>
+                    PDF, DOC or DOCX only
+                </small>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="applicantMessage">
+                    Message
+                </label>
+
+                <textarea
+                    id="applicantMessage"
+                    rows="4"
+                    placeholder="Write a short message..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Submit Application
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+ <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel - WalkIn Job Portal</title>
+
+    <link rel="stylesheet"
+          href="admin.css">
+
+</head>
+
+<body>
+
+    <header class="admin-header">
+
+        <h1>WalkIn Job Portal</h1>
+
+        <p>Admin Panel</p>
+
+    </header>
+
+
+    <main class="admin-container">
+
+        <section class="welcome-section">
+
+            <h2>Admin Dashboard</h2>
+
+            <p>
+                Manage jobs and view applications.
+            </p>
+
+        </section>
+
+
+        <section class="dashboard-cards">
+
+            <!-- JOBS -->
+
+            <div class="dashboard-card">
+
+                <h3>Jobs</h3>
+
+                <p id="jobCount">0</p>
+
+                <button id="viewJobsBtn">
+                    View Jobs
+                </button>
+
+            </div>
+
+
+            <!-- APPLICATIONS -->
+
+            <div class="dashboard-card">
+
+                <h3>Applications</h3>
+
+                <p id="applicationCount">0</p>
+
+                <button id="viewApplicationsBtn">
+                    View Applications
+                </button>
+
+            </div>
+
+
+            <!-- ADD JOB -->
+
+            <div class="dashboard-card">
+
+                <h3>Add Job</h3>
+
+                <p>+</p>
+
+                <button id="addJobBtn">
+                    Add New Job
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section id="contentSection"
+                 class="content-section">
+
+        </section>
+
+    </main>
+
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
