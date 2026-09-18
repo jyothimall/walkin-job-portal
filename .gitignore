@@ -1,0 +1,12 @@
+# Java compiled files
+out/
+*.class
+
+# VS Code
+.vscode/
+
+# Uploaded resumes
+resumes/
+
+# MySQL password file
+src/DBConnection.java
