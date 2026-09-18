@@ -15,10 +15,13 @@ public class JobServer {
 
     public static void main(String[] args) throws Exception {
 
-        HttpServer server = HttpServer.create(
-                new InetSocketAddress(8080), 0
-        );
+        int port = Integer.parseInt(
+        System.getenv().getOrDefault("PORT", "8080")
+);
 
+        HttpServer server = HttpServer.create(
+                new InetSocketAddress("0.0.0.0", port), 0
+        );
         server.createContext(
                 "/jobs",
                 JobServer::handleJobs
@@ -49,7 +52,7 @@ public class JobServer {
 
         System.out.println("Server started!");
         System.out.println(
-                "Open: http://localhost:8080/jobs"
+        "Server running on port: " + port
         );
 
         server.start();
