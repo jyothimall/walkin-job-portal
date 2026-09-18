@@ -200,7 +200,7 @@ async function loadJobs() {
     try {
 
         const response =
-            await fetch("http://localhost:8080/jobs");
+           await fetch("https://walkin-job-portal-production.up.railway.app/jobs");
 
         if (!response.ok) {
             throw new Error("Unable to load jobs");
