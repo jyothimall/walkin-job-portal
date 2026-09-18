@@ -1152,11 +1152,38 @@ public class JobServer {
         HttpExchange exchange)
         throws IOException {
 
-    File file = new File("index.html");
+    String path = exchange.getRequestURI().getPath();
 
-    if (!file.exists()) {
+    if (path.equals("/")) {
+        path = "/index.html";
+    }
+
+    if (path.contains("..")) {
+        exchange.sendResponseHeaders(400, -1);
+        return;
+    }
+
+    File file = new File("." + path);
+
+    if (!file.exists() || !file.isFile()) {
         exchange.sendResponseHeaders(404, -1);
         return;
+    }
+
+    String contentType = "application/octet-stream";
+
+    if (path.endsWith(".html")) {
+        contentType = "text/html";
+    } else if (path.endsWith(".css")) {
+        contentType = "text/css";
+    } else if (path.endsWith(".js")) {
+        contentType = "application/javascript";
+    } else if (path.endsWith(".png")) {
+        contentType = "image/png";
+    } else if (path.endsWith(".jpg") || path.endsWith(".jpeg")) {
+        contentType = "image/jpeg";
+    } else if (path.endsWith(".svg")) {
+        contentType = "image/svg+xml";
     }
 
     byte[] data = java.nio.file.Files.readAllBytes(
@@ -1165,7 +1192,7 @@ public class JobServer {
 
     exchange.getResponseHeaders().set(
             "Content-Type",
-            "text/html"
+            contentType
     );
 
     exchange.sendResponseHeaders(
