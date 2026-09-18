@@ -1,0 +1,6 @@
+[build]
+builder = "RAILPACK"
+buildCommand = "javac -cp \"mysql-connector-j-26.7.0.jar\" -d out src/*.java"
+
+[deploy]
+startCommand = "java -cp \"out:mysql-connector-j-26.7.0.jar\" JobServer"
