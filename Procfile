@@ -1,1 +1,0 @@
-web: java -cp "out:mysql-connector-j-26.7.0.jar" JobServer
